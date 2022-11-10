@@ -8,8 +8,10 @@ fi
 file_name="$1"
 dest="$2"
 
+output="$dest/logseq_vault_restored"
+
 echo "Creating dir: $dest..."
-mkdir -p "$dest"
+mkdir -p "$output"
 
 echo "Extracting file: $file_name..."
-tar -xzf "$file_name" -C "$dest"
+tar -xzf "$file_name" -C "$output"

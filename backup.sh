@@ -17,13 +17,15 @@ else
     output="$dest/$file_name"
 fi
 
+mkdir -p "$dest"
+
 # The H flag keeps the timestamps
 # c - Create a directory
 # v - verbose
 # z - gzip
 # f - write to file
 echo "Gzipping folder to: $output"
-tar -czf "$output" "$source"
+tar -czf "$output" -C "$source" ./
 
 # echo "Syncing to server..."
 # rsync -avt $source "$dest/backups/"
