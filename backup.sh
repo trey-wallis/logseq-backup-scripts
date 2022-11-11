@@ -19,13 +19,10 @@ fi
 
 mkdir -p "$dest"
 
-# The H flag keeps the timestamps
-# c - Create a directory
-# v - verbose
+# c - Create an archive
 # z - gzip
 # f - write to file
-echo "Gzipping folder to: $output"
+# C - change the output path
 tar -czf "$output" -C "$source" ./
 
-# echo "Syncing to server..."
-# rsync -avt $source "$dest/backups/"
+echo "$output"
