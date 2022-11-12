@@ -29,7 +29,7 @@ Unzip a `.tar.gz` archive into a specified directory
 
 ```bash
 # Example
-./restore.sh /users/trey/backups/backup.tar.gz /users/trey/restores/
+./restore.sh /users/trey/backups/logseq_backup.tar.gz /users/trey
 ```
 
 ### Backup to a remote location
