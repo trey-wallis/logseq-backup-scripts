@@ -5,11 +5,11 @@ if [ "$#" -ne 5 ]; then
     exit 2
 fi
 
-source_folder="$1"
+source_folder="${1%/}"
 user="$2"
 host="$3"
 ssh_key="$4"
-remote_folder="$5"
+remote_folder="${5%/}"
 
 # MD5 hash all of the files and make a hash out of those hashes
 checksum="$(find -s "$source_folder" -type f -exec md5 {} \; | md5)"
