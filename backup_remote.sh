@@ -11,12 +11,6 @@ host="$3"
 ssh_key="$4"
 remote_folder="$5"
 
-# Validate that the source folder is a directory
-if [ -f "$source_folder" ]; then
-    echo "Error: Source folder cannot be a file." >&2
-    exit 1
-fi
-
 # MD5 hash all of the files and make a hash out of those hashes
 checksum="$(find -s "$source_folder" -type f -exec md5 {} \; | md5)"
 checksum_file="/tmp/$checksum"

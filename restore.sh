@@ -1,17 +1,26 @@
 #!/bin/bash
 
 if [ "$#" -ne 2 ]; then
-    echo "Usage: ./restore.sh <backup-file> <dest-path>" >&2
+    echo "Usage: ./restore.sh <source-archive> <destination-folder>"
     exit 2
 fi
 
-file_name="$1"
-dest="$2"
+# Remove any trailing slashes
+source="${1%/}"
+# Remove any trailing slashes
+dest="${2%/}"
 
-output="$dest/logseq_vault_restored"
+# Remove everything before the last slash
+file_name_with_extension="$(echo "$source" | sed 's/.*\///')"
+# Remove the file extension
+file_name="${file_name_with_extension%%.*}"
 
-echo "Creating dir: $dest..."
+output="$dest/$file_name"
+
+# Create a folder if it doesn't exist
 mkdir -p "$output"
 
-echo "Extracting file: $file_name..."
-tar -xzf "$file_name" -C "$output"
+tar -xzvf "$source" -C "$output"
+
+echo "$output"
+exit 0

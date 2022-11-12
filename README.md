@@ -6,23 +6,11 @@ Shell scripts for backing up logseq files
 
 ### Backup a folder
 
-Create a `.tar.gz` file into the `tmp` directory
+Create a `.tar.gz` archive into a specified directory
 
 ```bash
 # Usage
-./backup.sh <source-folder>
-```
-
-```bash
-# Example
-./backup.sh ~/test-folder
-```
-
-Create a `.tar.gz` file into the a specified directory
-
-```bash
-# Usage
-./backup.sh <source-folder> <dest-folder>
+./backup.sh <source-folder> <destination-folder>
 ```
 
 ```bash
@@ -36,17 +24,17 @@ Unzip a `.tar.gz` archive into a specified directory
 
 ```bash
 # Usage
-`./restore.sh <backup-archive> <dest-folder>
+./restore.sh <source-archive> <destination-folder>
 ```
 
 ```bash
 # Example
-`./restore.sh /users/trey/backups/backup.tar.gz /users/trey/restores/`
+./restore.sh /users/trey/backups/backup.tar.gz /users/trey/restores/
 ```
 
 ### Backup to a remote location
 
-Create a `.tar.gz` archive if the source folder file content has changed. Save the archive in a folder on a remote server.
+Create a `.tar.gz` archive only if the source folder file content has changed. Save the archive in a folder on a remote server.
 
 ```bash
 # Usage
