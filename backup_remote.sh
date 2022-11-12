@@ -32,7 +32,7 @@ file_name="vault_$current_timestamp.tar.gz"
 command="cat > $remote_folder/$file_name && cd $remote_folder && ls -t | tail -n +4 | xargs --no-run-if-empty rm --"
 
 # Create an gzipped achive of the source folder and send it over stdout
-# to our server
+# to a remote server
 # c - Create an archive
 # z - gzip
 # f - write to file
