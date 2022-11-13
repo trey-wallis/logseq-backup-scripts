@@ -5,9 +5,11 @@ if [ $# -ne 2 ]; then
     exit 2
 fi
 
+# Remove any trailing slashes
 source="${1%/}"
 dest="${2%/}"
 
+# Create a folder if it doesn't exist
 mkdir -p "$dest"
 
 current_timestamp=$(date +"%Y_%m_%d-%H_%M_%S")

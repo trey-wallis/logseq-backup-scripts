@@ -7,7 +7,6 @@ fi
 
 # Remove any trailing slashes
 source="${1%/}"
-# Remove any trailing slashes
 dest="${2%/}"
 
 filename="$(basename $source)"
@@ -17,6 +16,10 @@ output="$dest/$file_name"
 # Create a folder if it doesn't exist
 mkdir -p "$output"
 
-tar -xzvf "$source" -C "$output"
+# x - Extract an archive
+# z - gzip
+# f - write to file
+# C - change the output path
+tar -xzf "$source" -C "$output"
 
 echo "$output"

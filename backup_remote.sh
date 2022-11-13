@@ -5,6 +5,7 @@ if [ $# -ne 5 ]; then
     exit 2
 fi
 
+# Remove any trailing slashes
 source_folder="${1%/}"
 user="$2"
 host="$3"
