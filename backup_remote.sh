@@ -13,7 +13,7 @@ ssh_key="$4"
 remote_folder="${5%/}"
 
 # MD5 hash all of the files and make a hash out of those hashes
-checksum="$(find -s "$source_folder" -type f -exec md5 {} \; | md5)"
+checksum="$(find -s "$source_folder" -type f -exec /sbin/md5 {} \; | /sbin/md5)"
 checksum_file="/tmp/backup_remote_$checksum"
 
 # If md5 hash hasn't changed, exit.
