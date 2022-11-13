@@ -10,10 +10,7 @@ source="${1%/}"
 # Remove any trailing slashes
 dest="${2%/}"
 
-# Remove everything before the last slash
-file_name_with_extension="$(echo $source | sed 's/.*\///')"
-# Remove the file extension
-file_name="${file_name_with_extension%%.*}"
+filename="$(basename $source)"
 
 output="$dest/$file_name"
 
