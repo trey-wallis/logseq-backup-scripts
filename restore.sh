@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ "$#" -ne 2 ]; then
+if [ $# -ne 2 ]; then
     echo "Usage: ./restore.sh <source-archive> <destination-folder>"
     exit 2
 fi
@@ -11,7 +11,7 @@ source="${1%/}"
 dest="${2%/}"
 
 # Remove everything before the last slash
-file_name_with_extension="$(echo "$source" | sed 's/.*\///')"
+file_name_with_extension="$(echo $source | sed 's/.*\///')"
 # Remove the file extension
 file_name="${file_name_with_extension%%.*}"
 

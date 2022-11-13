@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [ "$#" -ne 2 ]; then
-    echo "Usage: ./backup.sh <source-folder> <destination-folder>"
+if [ $# -ne 2 ]; then
+    echo "Usage: ./backup.sh <folder-to-archive> <destination-folder>"
     exit 2
 fi
 
