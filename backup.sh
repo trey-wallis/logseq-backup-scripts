@@ -21,4 +21,3 @@ output="$dest/$file_name"
 tar -czf "$output" -C "$source" ./
 
 echo "$output"
-exit 0

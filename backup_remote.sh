@@ -42,4 +42,3 @@ command="cat > $remote_folder/$file_name && cd $remote_folder && ls -t | tail -n
 tar zcf - "$source_folder" | ssh -i "$ssh_key" "$user@$host" "$command"
 
 echo "$remote_folder/$file_name"
-exit 0

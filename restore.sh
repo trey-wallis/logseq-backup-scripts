@@ -23,4 +23,3 @@ mkdir -p "$output"
 tar -xzvf "$source" -C "$output"
 
 echo "$output"
-exit 0
