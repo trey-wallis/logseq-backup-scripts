@@ -28,8 +28,8 @@ rm /tmp/backup_remote*
 touch "$checksum_file"
 
 # Create file name based on timestamp
-current_timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
-file_name="vault_$current_timestamp.tar.gz"
+current_timestamp=$(date +"%Y_%m_%d-%H_%M_%S")
+file_name="vault-$current_timestamp.tar.gz"
 
 # Create a file from stdout. Then list all files, delete all but the last 3
 command="cat > $remote_folder/$file_name && cd $remote_folder && ls -t | tail -n +4 | xargs --no-run-if-empty rm --"

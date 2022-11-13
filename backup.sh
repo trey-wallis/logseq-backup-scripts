@@ -10,8 +10,8 @@ dest="${2%/}"
 
 mkdir -p "$dest"
 
-current_timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
-file_name="logseq_backup_$current_timestamp.tar.gz"
+current_timestamp=$(date +"%Y_%m_%d-%H_%M_%S")
+file_name="vault-$current_timestamp.tar.gz"
 output="$dest/$file_name"
 
 # c - Create an archive
