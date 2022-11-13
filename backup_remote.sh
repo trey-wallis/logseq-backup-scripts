@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [ "$#" -ne 5 ]; then
-    echo "Usage: ./backup_sync.sh <source-folder> <user> <host> <ssh-key> <remote-folder>"
+if [ $# -ne 5 ]; then
+    echo "Usage: ./backup_remote.sh <folder-to-archive> <user> <host> <ssh-key> <remote-destination-folder>"
     exit 2
 fi
 
@@ -13,7 +13,7 @@ remote_folder="${5%/}"
 
 # MD5 hash all of the files and make a hash out of those hashes
 checksum="$(find -s "$source_folder" -type f -exec md5 {} \; | md5)"
-checksum_file="/tmp/$checksum"
+checksum_file="/tmp/backup_remote_$checksum"
 
 # If md5 hash hasn't changed, exit.
 if [ -f "$checksum_file" ]; then
@@ -21,7 +21,10 @@ if [ -f "$checksum_file" ]; then
     exit 0
 fi
 
-# Create checksum file
+# Remove old checksum file
+rm /tmp/backup_remote*
+
+# Create new checksum file
 touch "$checksum_file"
 
 # Create file name based on timestamp
